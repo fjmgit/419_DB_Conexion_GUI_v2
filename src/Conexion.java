@@ -1,9 +1,6 @@
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /*
@@ -18,7 +15,7 @@ import javax.swing.JOptionPane;
  */
 public class Conexion {
     
-        /*  La idea es tener una única clase que maneje la conexión a la base de
+    /*  La idea es tener una única clase que maneje la conexión a la base de
         datos a utilizar, esto nos facilita el trabajo a la hora de cambiar la
         la persistencia de nuestros datos, solo tendriamos que modificar esta
         clase para apuntar a la memoria ram, a un archivo o a otro gestor de
@@ -42,7 +39,7 @@ public class Conexion {
         
         boolean openConnection= false;
 
-        //Url de conexión para llegar a la base de datos "escuela":
+        //Url de conexión a la base de datos
         String url= "jdbc:mysql://"+ direccion+":"+ puerto+ "/"+ base+ "?serverTimezone=GMT";        
         
         //Driver de conexión a MySql:
@@ -54,7 +51,6 @@ public class Conexion {
             openConnection= true;
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, "        REVISAR URL, PUERTO, DB, USER Y PASS            \n\n"+ ex.getMessage()+"        \n\n", "ERROR EN LOS DATOS", JOptionPane.ERROR_MESSAGE);
-            //System.exit(0);
         }
         return openConnection;
     }
